@@ -1,0 +1,24 @@
+body{
+    background-color: #525357;
+    color: white;
+    text-align: center;
+}
+.logoFcyt{
+    width: 60px;
+    height: 60px;
+}
+.navbar{
+    background: #181925;
+}
+.nav-item:hover{
+    background: #3f3f3f;
+}
+.tablaa{
+    margin-left: 630px;
+    padding: 20px;
+}
+TR{
+    background-color: rgb(255, 234, 234);
+    padding: 20px;
+    color: black;
+}

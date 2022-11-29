@@ -1,0 +1,51 @@
+.logoFcyt{
+    width: 60px;
+    height: 60px;
+}
+
+.title{
+    font-size: 60px;
+    display: grid;
+    justify-content: center;
+    color:rgb(255, 255, 255);
+}
+/* body{
+    background-color: #bcbcbc;
+} */
+.texto{
+    text-align: justify;
+    font-size: 20px;
+}
+.navbar{
+    background: #181925;
+}
+.nav-item:hover{
+    background: #3f3f3f;
+}
+.noticias{
+    padding-top: 5%;
+    background-color: #1e242c;
+}
+.noticias .texto{
+    color: white;
+}
+.row.noticias{
+    /* background: #2B5481; */
+    justify-content: space-around;
+    padding: 5%;
+}
+.card{
+    margin: 2%;
+}
+.card img{
+    height: 250px;
+}
+button img{
+    width: 18px;
+    height: 18px;
+}
+.anuncios{
+    text-align: center;
+    background-color: #3f3f3f;
+}
+
