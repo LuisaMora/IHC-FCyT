@@ -131,10 +131,15 @@
 </div>
     <script> 
           const Convocatorias=[
-            {nombre:'Python',imagen:'../img/Taller1Python.jpeg',id:1},
-            {nombre:'Python',imagen:'../img/Taller2Python.jpeg',id:2},
-            {nombre:'Microsoft',imagen:'../img/Taller4Microsoft.jpeg',id:3},
-            {nombre:'Android',imagen:'../img/Taller3Android.jpeg',id:4}
+            {nombre:'Python',imagen:'../img/Taller1Python.jpeg',descripcion:'Taller de Python desde cero para todos los interesados en Ing Informatica organizado por Python Cochabamba ',enlace:'https://docs.google.com/forms/d/e/1FAIpQLSfOBGtNIRtLjH_aPUv0uglokzRdmEJTLDYz2OZxc7EwboKi6A/viewform?usp=sf_link',id:1},
+            {nombre:'Python',imagen:'../img/Taller2Python.jpeg',descripcion:'Taller de Python enfocado a estructura de datos para todos los interesados de las carreras de infromatica organiazdo por Python Cochabamba',enlace:'https://docs.google.com/forms/d/e/1FAIpQLSfOBGtNIRtLjH_aPUv0uglokzRdmEJTLDYz2OZxc7EwboKi6A/viewform?usp=sf_link',id:2},
+            {nombre:'Microsoft',imagen:'../img/Taller4Microsoft.jpeg',descripcion:'Taller de Microsoft para poder unirte a la comunidad de Microsoft Ambassadors no pierdas la oportunidad y registrate!!!',enlace:'https://docs.google.com/forms/d/e/1FAIpQLSfOBGtNIRtLjH_aPUv0uglokzRdmEJTLDYz2OZxc7EwboKi6A/viewform?usp=sf_link',id:3},
+            {nombre:'Android',imagen:'../img/Taller3Android.jpeg',descripcion:'Taller de Android para poder tener mas conocimiento acerca de la herramienta registrate ya!!!',enlace:'https://docs.google.com/forms/d/e/1FAIpQLSfOBGtNIRtLjH_aPUv0uglokzRdmEJTLDYz2OZxc7EwboKi6A/viewform?usp=sf_link',id:4},
+            {nombre:'ICPC',imagen:'../img/ICPC.jpg',descripcion:'Taller de informacion para poder entrar a compretencias dentro de la ICPC y formar parte de un equipo para represnetar a la UMSS',enlace:'https://docs.google.com/forms/d/e/1FAIpQLSfOBGtNIRtLjH_aPUv0uglokzRdmEJTLDYz2OZxc7EwboKi6A/viewform?usp=sf_link',id:5},
+            {nombre:'Factores de Exito',imagen:'../img/Taller6.jpg',descripcion:'Taller de exito para estudiantes de la facultad de ciencias y tecnologia',enlace:'https://docs.google.com/forms/d/e/1FAIpQLSfOBGtNIRtLjH_aPUv0uglokzRdmEJTLDYz2OZxc7EwboKi6A/viewform?usp=sf_link',id:6},
+            {nombre:'Android',imagen:'../img/Taller7.jpg',descripcion:'Aprende Android desde cero registrate ya!!!!! te esperamos',enlace:'https://docs.google.com/forms/d/e/1FAIpQLSfOBGtNIRtLjH_aPUv0uglokzRdmEJTLDYz2OZxc7EwboKi6A/viewform?usp=sf_link',id:7},
+            {nombre:'Hongos Comestibles',imagen:'../img/Taller8.jpeg',descripcion:'Taller para la carrera de Ing en Alimentos registrate ahora!!!!',enlace:'https://docs.google.com/forms/d/e/1FAIpQLSfOBGtNIRtLjH_aPUv0uglokzRdmEJTLDYz2OZxc7EwboKi6A/viewform?usp=sf_link',id:8},
+            {nombre:'Conservacion de suelos',imagen:'../img/Taller9.jpeg',descripcion:'Taller enfocado en la carrera de Ing en Alimentos',enlace:'https://docs.google.com/forms/d/e/1FAIpQLSfOBGtNIRtLjH_aPUv0uglokzRdmEJTLDYz2OZxc7EwboKi6A/viewform?usp=sf_link',id:9}
      ]
 
         const formulario=document.querySelector('#formulario');
@@ -153,8 +158,9 @@
                     <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">${producto.nombre}</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <p class="card-text">${producto.descripcion}</p>
                       <a href="#" class="btn btn-primary">Descargar</a>
+                      <a href="${producto.enlace}" class="btn btn-primary">Registrarse</a>
                     </div>
                   </div>
                 </div>
@@ -184,6 +190,7 @@
                         <h5 class="card-title">${producto.nombre}</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="btn btn-primary">Descargar</a>
+                        <a href="${producto.enlace}" class="btn btn-primary">Registrarse</a>
                       </div>
                     </div>
                   </div>
