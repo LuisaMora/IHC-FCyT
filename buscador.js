@@ -7,6 +7,9 @@ const palabras = [
   { nombre: "plata", costo: 445 },
 
 ];
+const tarjetas=[
+  {}
+]
 const buscar = document.querySelector("#buscador");
 const boton = document.querySelector("#boton");
 const res = document.querySelector("#resultado");
