@@ -149,7 +149,18 @@
         const select=document.querySelector('#select');
         const boton = document.querySelector('#boton');
         const resultado= document.querySelector('#resultado');
-        const busquedas=[];
+        var busquedas=[];
+
+        function eliminarDuplicados(busquedas, busqueda) {
+          const indice = busquedas.indexOf(busqueda);
+          if (indice > -1) { 
+            console.log("Encontro duplicao")
+            busquedas.splice(indice, 1);
+            return indice
+          }
+          return -1
+          
+        }
 
         var mostrar=()=>{
           resultado.innerHTML='';
@@ -177,14 +188,20 @@
         }
         const filtrar=()=>{
             resultado.innerHTML='';
-            //console.log(formulario.value);
-            const texto=formulario.value.toLowerCase();
-            busquedas.push({texto:texto});
-            console.log(busquedas);
             for(var i=0;i<busquedas.length;i++){
-          select.innerHTML+=`
-          <option>${busquedas[i].texto}</option>
-            `;
+              document.getElementById("op"+i).remove();
+            }
+            const texto=formulario.value.toLowerCase();
+            console.log(busquedas.includes(texto));
+            var indiceEliminado = eliminarDuplicados(busquedas,texto);
+            busquedas.push(texto);
+            console.log(busquedas);
+            
+            for(var i=0;i<busquedas.length;i++){
+
+              select.innerHTML+=`
+              <option id="${"op"+i}">${busquedas[i]}</option>
+                `;
             }
             for(let producto of Convocatorias){
                 let nombre = producto.nombre.toLowerCase();
