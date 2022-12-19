@@ -142,11 +142,14 @@
         const formulario=document.querySelector('#formulario');
         const boton = document.querySelector('#boton');
         const resultado= document.querySelector('#resultado');
+        const busquedas=[];
 
         const filtrar=()=>{
             resultado.innerHTML='';
             //console.log(formulario.value);
             const texto=formulario.value.toLowerCase();
+            busquedas.push(texto);
+            console.log(busquedas);
             for(let producto of Convocatorias){
                 let nombre = producto.nombre.toLowerCase();
                 if (nombre.indexOf(texto)!== -1){
