@@ -131,12 +131,12 @@
 </div>
     <script> 
           const Convocatorias=[
-            {nombre:'Programacion',imagen:'../img/Convocatoria1.jfif',id:1},
-            {nombre:'Python',imagen:'../img/convocatoria2.jfif',id:2},
-            {nombre:'CSS',imagen:'../img/convocatoria3.jfif',id:3},
-            {nombre:'Convocatoria1',imagen:'../img/convocatoria4.jfif',id:4},
-            {nombre:'Python',imagen:'../img/convocatoria5.jfif',id:5},
-            {nombre:'CSS',imagen:'../img/convocatoria6.jfif',id:6}
+            {nombre:'Profesiografica',imagen:'../img/Feria1.jpg',descripcion:'Te invitamos a ser parte de la feria profesiografica de la Universidad Mayor de SanSimon',id:1},
+            {nombre:'Oferta de Servicio',imagen:'../img/Feriax.jpg',descripcion:'Feria sobre oferta de servicios no te lo puedes perder',id:2},
+            {nombre:'Ciencias',imagen:'../img/Feriay.png',descripcion:'Feria de Ciencias animate a ser parte sin ningun costo',id:3},
+            {nombre:'Investigacion',imagen:'../img/Feria6.jpg',descripcion:'Feria con enfoque de investigacion no te lo puedes perder',id:4},
+            {nombre:'Skyline',imagen:'../img/Feria1.jpeg',descripcion:'Feria virtual de skyline animate a ser parte',id:5},
+            {nombre:'Ingenieria',imagen:'../img/feriaf.jpg',descripcion:'Feria de ingenieria no te lo puedes perder!',id:6}
      ]
 
         const formulario=document.querySelector('#formulario');
@@ -144,8 +144,6 @@
         const resultado= document.querySelector('#resultado');
         var mostrar=()=>{
           resultado.innerHTML='';
-            //console.log(formulario.value);
-            // const texto=formulario.value.toLowerCase();
             for(let producto of Convocatorias){
                 let nombre = producto.nombre.toLowerCase();
                   resultado.innerHTML+=`
@@ -154,8 +152,8 @@
             <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">${producto.nombre}</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Descargar</a>
+              <p class="card-text">${producto.descripcion}</p>
+              <a download="prueba" href="${producto.imagen}" class="btn btn-primary">Descargar</a>
             </div>
           </div>
         </div>
@@ -181,8 +179,8 @@
             <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">${producto.nombre}</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Descargar</a>
+              <p class="card-text">${producto.descripcion}</p>
+              <a download="prueba" href="${producto.imagen}" class="btn btn-primary">Descargar</a>
             </div>
           </div>
         </div>
