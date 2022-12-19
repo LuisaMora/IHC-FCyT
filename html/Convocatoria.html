@@ -124,7 +124,7 @@
 
     <input type="text" id="formulario" class="form-control">
 
-    <select  id="select" class="form-select" multiple aria-label="multiple select example">
+    <select  id="select" class="form-select" multiple aria-label="multiple select example" style="display: none">
      
     </select> 
     
@@ -150,6 +150,7 @@
         const boton = document.querySelector('#boton');
         const resultado= document.querySelector('#resultado');
         var busquedas=[];
+        var convocatorias = [];
 
         function eliminarDuplicados(busquedas, busqueda) {
           const indice = busquedas.indexOf(busqueda);
@@ -187,6 +188,7 @@
 
         }
         const filtrar=()=>{
+          document.getElementById("select").style.display = "none"
             resultado.innerHTML='';
             for(var i=0;i<busquedas.length;i++){
               document.getElementById("op"+i).remove();
@@ -226,7 +228,29 @@
                 `
             }
         }
+
+        const mostrarSelect = ()=>{
+          const texto=formulario.value.toLowerCase();
+          for(var i=0;i<convocatorias.length;i++){
+              document.getElementById("conv"+i).remove();
+          }
+          convocatorias = []
+          document.getElementById("select").style.display = "block"
+          for(let producto of Convocatorias){
+                let nombre = producto.nombre.toLowerCase();
+                if (nombre.indexOf(texto)!== -1){
+                  convocatorias.push(producto.nombre);
+                }
+          }
+          for(var i=0;i<convocatorias.length;i++){
+            select.innerHTML+=`
+            <option id="${"conv"+i}">${convocatorias[i]}</option>
+              `;
+          }
+        }
+
         boton.addEventListener('click',filtrar);
+        document.getElementById("formulario").addEventListener('input',mostrarSelect)
         mostrar();
     </script>
 </body>
