@@ -1,12 +1,13 @@
 .titulo{
     text-align: center;
 }
-.cardz{
+/* .cardz{
     margin: 10px;
     padding: 5px;
     align-items: flex-start;
-    width: 18rem;
-}.logoFcyt{
+    width: 18rem; 
+}*/
+.logoFcyt{
     width: 60px;
     height: 60px;
 }
@@ -45,6 +46,7 @@
 }
 .card img{
     height: 250px;
+    
 }
 button img{
     width: 18px;
