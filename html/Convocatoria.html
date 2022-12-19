@@ -124,24 +124,49 @@
     <br>
     <button class="btn btn-info" id="boton">Buscar</button>
     <br>
-    <div id="resultado" class="cardz" >
+    <div id="resultado" class="cardz row row-cols-1 row-cols-md-3" >
     </div>
 </div>
 
     <script> 
           const Convocatorias=[
-            {nombre:'Programacion',imagen:'../img/Convocatoria1.jfif'},
-            {nombre:'Python',imagen:'../img/convocatoria2.jfif'},
-            {nombre:'CSS',imagen:'../img/convocatoria3.jfif'},
-            {nombre:'Convocatoria1',imagen:'../img/convocatoria4.jfif'},
-            {nombre:'Python',imagen:'../img/convocatoria5.jfif'},
-            {nombre:'CSS',imagen:'../img/convocatoria6.jfif'}
+            {nombre:'Programacion',imagen:'../img/Convocatoria1.jfif',id:1},
+            {nombre:'Python',imagen:'../img/convocatoria2.jfif',id:2},
+            {nombre:'CSS',imagen:'../img/convocatoria3.jfif',id:3},
+            {nombre:'Convocatoria1',imagen:'../img/convocatoria4.jfif',id:4},
+            {nombre:'Python',imagen:'../img/convocatoria5.jfif',id:5},
+            {nombre:'CSS',imagen:'../img/convocatoria6.jfif',id:6}
      ]
 
         const formulario=document.querySelector('#formulario');
         const boton = document.querySelector('#boton');
         const resultado= document.querySelector('#resultado');
+        var mostrar=()=>{
+          resultado.innerHTML='';
+            //console.log(formulario.value);
+            // const texto=formulario.value.toLowerCase();
+            for(let producto of Convocatorias){
+                let nombre = producto.nombre.toLowerCase();
+                  resultado.innerHTML+=`
+                <div id="${producto.id}" class="col mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">${producto.nombre}</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Descargar</a>
+                    </div>
+                  </div>
+                </div>
+                  `
+            }
+            if(resultado.innerHTML=== ''){
+                resultado.innerHTML+=`
+                <li>Feria no encontrada</li>
+                `
+            }
 
+        }
         const filtrar=()=>{
             resultado.innerHTML='';
             //console.log(formulario.value);
@@ -150,12 +175,16 @@
                 let nombre = producto.nombre.toLowerCase();
                 if (nombre.indexOf(texto)!== -1){
                   resultado.innerHTML+=`
-        <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">${producto.nombre}</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Descargar</a>
-        </div>
+                  <div id="${producto.id}" class="col mb-4">
+                    <div class="card h-50">
+                      <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">${producto.nombre}</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Descargar</a>
+                      </div>
+                    </div>
+                  </div>
                   `
                 }
             }
@@ -166,6 +195,7 @@
             }
         }
         boton.addEventListener('click',filtrar);
+        mostrar();
     </script>
 </body>
 </html>
