@@ -122,6 +122,9 @@
     <h1 class="titulo">Ferias</h1>
     <br>
     <input type="text" id="formulario" class="form-control">
+    <select onchange="autocompletar()" id="select" class="form-select" multiple aria-label="multiple select example" style="display: none">
+     
+    </select> 
     <br>
     <button class="btn btn-info" id="boton">Buscar</button>
     <br>
@@ -139,25 +142,40 @@
             {nombre:'Ingenieria',imagen:'../img/feriaf.jpg',descripcion:'Feria de ingenieria no te lo puedes perder!',id:6}
      ]
 
-        const formulario=document.querySelector('#formulario');
+     const formulario=document.querySelector('#formulario');
+        const select=document.querySelector('#select');
         const boton = document.querySelector('#boton');
         const resultado= document.querySelector('#resultado');
+        var busquedas=[];
+        var convocatorias = [];
+
+        function eliminarDuplicados(busquedas, busqueda) {
+          const indice = busquedas.indexOf(busqueda);
+          if (indice > -1) { 
+            console.log("Encontro duplicao")
+            busquedas.splice(indice, 1);
+            return indice
+          }
+          return -1
+          
+        }
+
         var mostrar=()=>{
           resultado.innerHTML='';
             for(let producto of Convocatorias){
                 let nombre = producto.nombre.toLowerCase();
-                  resultado.innerHTML+=`
-        <div id="${producto.id}" class="col mb-4">
-          <div class="card h-50">
-            <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">${producto.nombre}</h5>
-              <p class="card-text">${producto.descripcion}</p>
-              <a href="${producto.imagen}" download="Nombre" class="btn btn-primary">Descargar</a>
-            </div>
-          </div>
-        </div>
-                  `
+                resultado.innerHTML+=`
+                <div id="${producto.id}" class="col mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">${producto.nombre}</h5>
+                      <p class="card-text">${producto.descripcion}</p>
+                      <a href="${producto.imagen}" class="btn btn-primary">Descargar</a>
+                    </div>
+                  </div>
+                </div>
+                  `;
             }
             if(resultado.innerHTML=== ''){
                 resultado.innerHTML+=`
@@ -167,32 +185,76 @@
 
         }
         const filtrar=()=>{
+          document.getElementById("select").style.display = "none"
             resultado.innerHTML='';
+            for(var i=0;i<busquedas.length;i++){
+              document.getElementById("op"+i).remove();
+            }
             const texto=formulario.value.toLowerCase();
+            console.log(busquedas.includes(texto));
+            var indiceEliminado = eliminarDuplicados(busquedas,texto);
+            busquedas.push(texto);
+            console.log(busquedas);
+            
+            for(var i=0;i<busquedas.length;i++){
+
+              select.innerHTML+=`
+              <option id="${"op"+i}">${busquedas[i]}</option>
+                `;
+            }
             for(let producto of Convocatorias){
                 let nombre = producto.nombre.toLowerCase();
                 if (nombre.indexOf(texto)!== -1){
                   resultado.innerHTML+=`
-                  <div id="${producto.id}" class="col mb-4">
-          <div class="card h-50">
-            <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">${producto.nombre}</h5>
-              <p class="card-text">${producto.descripcion}</p>
-              <a href="${producto.imagen}" download="Nombre" class="btn btn-primary">Descargar</a>
-            </div>
-          </div>
-        </div>
-                  `
+                <div id="${producto.id}" class="col mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">${producto.nombre}</h5>
+                      <p class="card-text">${producto.descripcion}</p>
+                      <a href="${producto.imagen}" class="btn btn-primary">Descargar</a>
+                    </div>
+                  </div>
+                </div>
+                  `;
                 }
             }
             if(resultado.innerHTML=== ''){
                 resultado.innerHTML+=`
-                <li>Feria no encontrada</li>
+                <li>Convocatoria no encontrada</li>
                 `
             }
         }
+
+        const mostrarSelect = ()=>{
+          const texto=formulario.value.toLowerCase();
+          for(var i=0;i<convocatorias.length;i++){
+              document.getElementById("conv"+i).remove();
+          }
+          convocatorias = []
+          document.getElementById("select").style.display = "block";
+          for(let producto of Convocatorias){
+                let nombre = producto.nombre.toLowerCase();
+                if (nombre.indexOf(texto)!== -1){
+                  convocatorias.push(producto.nombre);
+                }
+          }
+          for(var i=0;i<convocatorias.length;i++){
+            select.innerHTML+=`
+            <option id="${"conv"+i}">${convocatorias[i]}</option>
+              `;
+          }
+        }
+
+        const autocompletar =()=>{
+          var optionSelected = document.getElementById("select").value;
+          console.log(optionSelected);
+          document.getElementById("formulario").value = optionSelected;
+          document.getElementById("select").style.display = "none";
+        }
+
         boton.addEventListener('click',filtrar);
+        document.getElementById("formulario").addEventListener('input',mostrarSelect)
         mostrar();
     </script>
 </body>

@@ -117,7 +117,7 @@
         </div>
     </nav>
   </div>
-<div class="container mt-5">
+<div class="container publicacion mt-5">
     <h1 class="titulo">Convocatorias</h1>
     <br>
     
@@ -178,7 +178,7 @@
                     </div>
                   </div>
                 </div>
-                  `
+                  `;
             }
             if(resultado.innerHTML=== ''){
                 resultado.innerHTML+=`
@@ -209,16 +209,16 @@
                 let nombre = producto.nombre.toLowerCase();
                 if (nombre.indexOf(texto)!== -1){
                   resultado.innerHTML+=`
-                  <div id="${producto.id}" class="col mb-4">
-                    <div class="card h-50">
-                      <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
-                      <div class="card-body">
-                        <h5 class="card-title">${producto.nombre}</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Descargar</a>
-                      </div>
+                <div id="${producto.id}" class="col mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">${producto.nombre}</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Descargar</a>
                     </div>
                   </div>
+                </div>
                   `
                 }
             }

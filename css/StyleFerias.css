@@ -1,6 +1,13 @@
 
+body,html{
+    background-color: #3f3f3f !important;
+  }
 .titulo{
     text-align: center;
+    color: aliceblue;
+}
+li{
+    color: aliceblue;
 }
 .logoFcyt{
     width: 60px;
