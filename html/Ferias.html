@@ -121,13 +121,17 @@
 <div class="container mt-5">
     <h1 class="titulo">Ferias</h1>
     <br>
-    <input type="text" id="formulario" class="form-control">
+    <div class="input-group mb-3">
+      <input type="text" id="formulario" placeholder="Buscar..." class="form-control" placeholder="Buscar...">
+      <button  class="btn btnBuscar" id="boton">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+      </button>
+    </div>
     <select onchange="autocompletar()" id="select" class="form-select" multiple aria-label="multiple select example" style="display: none">
      
     </select> 
-    <br>
-    <button class="btn btn-info" id="boton">Buscar</button>
-    <br>
     <div id="resultado" class="cardz row row-cols-1 row-cols-md-3" >
     </div>
 </div>
@@ -171,7 +175,17 @@
                     <div class="card-body">
                       <h5 class="card-title">${producto.nombre}</h5>
                       <p class="card-text">${producto.descripcion}</p>
-                      <a href="${producto.imagen}" class="btn btn-primary">Descargar</a>
+                      <div class="card-footer text-muted">
+                      <a type="submit" class="btn btnCard" name="B1"  href="${producto.imagen}" download="${producto.nombre}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="19" height="20" fill="currentColor" class="bi bi-download"
+                        viewBox="0 0 16 16">
+                        <path
+                          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                        <path
+                          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+                      </svg>
+                      Descargar</a>
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -212,7 +226,17 @@
                     <div class="card-body">
                       <h5 class="card-title">${producto.nombre}</h5>
                       <p class="card-text">${producto.descripcion}</p>
-                      <a href="${producto.imagen}" class="btn btn-primary">Descargar</a>
+                      <div class="card-footer text-muted">
+                      <a type="submit" class="btn btnCard" name="B1"  href="${producto.imagen}" download="${producto.nombre}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="19" height="20" fill="currentColor" class="bi bi-download"
+                        viewBox="0 0 16 16">
+                        <path
+                          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                        <path
+                          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+                      </svg>
+                      Descargar</a>
+                    </div>
                     </div>
                   </div>
                 </div>
