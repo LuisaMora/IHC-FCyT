@@ -124,7 +124,7 @@
 
     <input type="text" id="formulario" class="form-control">
 
-    <select  id="select" class="form-select" multiple aria-label="multiple select example" style="display: none">
+    <select onchange="autocompletar()" id="select" class="form-select" multiple aria-label="multiple select example" style="display: none">
      
     </select> 
     
@@ -235,7 +235,7 @@
               document.getElementById("conv"+i).remove();
           }
           convocatorias = []
-          document.getElementById("select").style.display = "block"
+          document.getElementById("select").style.display = "block";
           for(let producto of Convocatorias){
                 let nombre = producto.nombre.toLowerCase();
                 if (nombre.indexOf(texto)!== -1){
@@ -247,6 +247,13 @@
             <option id="${"conv"+i}">${convocatorias[i]}</option>
               `;
           }
+        }
+
+        const autocompletar =()=>{
+          var optionSelected = document.getElementById("select").value;
+          console.log(optionSelected);
+          document.getElementById("formulario").value = optionSelected;
+          document.getElementById("select").style.display = "none";
         }
 
         boton.addEventListener('click',filtrar);
